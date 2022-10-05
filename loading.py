@@ -1,19 +1,18 @@
 import threading
 import time
-import os
 
 class LoadingSpin(threading.Thread):
-    def __init__(self):
+    def __init__(self, dt = 1):
         super().__init__()
         self.loading = True
-        self.symbols = [" / ", " ― ", " \ ", " | "]
+        self.dt = dt
+        self.symbols = [".", "..", "..."]
         
     def run(self):
         while self.loading:
             for symbol in self.symbols:
                 print(symbol)
-                time.sleep(1)
-                #os.system('cls' if os.name == 'nt' else 'clear')
+                time.sleep(self.dt)
     
     def stop(self):
         self.loading = False
