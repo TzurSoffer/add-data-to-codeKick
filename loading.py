@@ -17,4 +17,3 @@ class LoadingSpin(threading.Thread):
     def stop(self):
         self.loading = False
 
-loader = LoadingSpin()
